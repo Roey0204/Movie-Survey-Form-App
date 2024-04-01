@@ -10,19 +10,21 @@ class Parse:
     def __init__(self):
         
         '''
-        Ensures that the incoming data must include "name", "views", and "likes" fields, and 
+        Ensures that the incoming data must include "name", "scores", and "age" fields, and 
         these fields must adhere to the specified types and constraint
         '''
         
         self.movie_put_args = reqparse.RequestParser()
         self.movie_put_args.add_argument("name", type=str, help="Name of the movie is required", required=True)
-        self.movie_put_args.add_argument("views", type=int, help="Views of the movie", required=True)
-        self.movie_put_args.add_argument("likes", type=int, help="Likes on the movie", required=True)
+        self.movie_put_args.add_argument("scores", type=int, help="scores of the movie", required=True)
+        self.movie_put_args.add_argument("age", type=int, help="age on the movie", required=True)
+        self.movie_put_args.add_argument("comment", type=str, help="comment of the movie is required", required=True)
 
         self.movie_update_args = reqparse.RequestParser()
         self.movie_update_args.add_argument("name", type=str, help="Name of the movie is required")
-        self.movie_update_args.add_argument("views", type=int, help="Views of the movie")
-        self.movie_update_args.add_argument("likes", type=int, help="Likes on the movie")
+        self.movie_update_args.add_argument("scores", type=int, help="scores of the movie")
+        self.movie_update_args.add_argument("age", type=int, help="age on the movie")
+        self.movie_update_args.add_argument("comment", type=str, help="comment of the movie is required")
         
         '''
          Used with the marshal_with() decorator or the marshal() function provided by Flask-RESTful to 
@@ -32,8 +34,9 @@ class Parse:
         self.resource_fields = {
             'id': fields.Integer,
             'name': fields.String,
-            'views': fields.Integer,
-            'likes': fields.Integer
+            'scores': fields.Integer,
+            'age': fields.Integer,
+            "comment":fields.String
         }
 
 class Movie(Resource):
@@ -51,14 +54,13 @@ class Movie(Resource):
     @marshal_with(Parse().resource_fields)
     def put(self, movie_id:int):
         args = Parse().movie_put_args.parse_args()
-        result = MovieModel.query.filter_by(id=movie_id).first()
+        check = MovieModel.query.count() +1
+        result = MovieModel.query.filter_by(id=check).first()
         if result:
             abort(409, message="Movie id taken...")
-
-        movie = MovieModel(id=movie_id, name=args['name'], views=args['views'], likes=args['likes'])
+        movie = MovieModel(id=check, name=args['name'], scores=args['scores'], age=args['age'],comment=args['comment'])
         db.session.add(movie)
         db.session.commit()
-
         return movie, 201
 
     @marshal_with(Parse().resource_fields)
@@ -70,10 +72,12 @@ class Movie(Resource):
 
         if args['name']:
             result.name = args['name']
-        if args['views']:
-            result.views = args['views']
-        if args['likes']:
-            result.likes = args['likes']
+        if args['scores']:
+            result.scores = args['scores']
+        if args['age']:
+            result.age = args['age']
+        if args['comment']:
+            result.age = args['comment']
 
         db.session.commit()
 

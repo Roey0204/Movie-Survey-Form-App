@@ -17,11 +17,12 @@ db    = SQLAlchemy()
 class MovieModel(db.Model):
     id    = db.Column(db.Integer, primary_key=True)
     name  = db.Column(db.String(100), nullable=False)
-    views = db.Column(db.Integer, nullable=False)
-    likes = db.Column(db.Integer, nullable=False)
+    scores = db.Column(db.Integer, nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+    comment  = db.Column(db.String(100), nullable=False)
 
     def __repr__(self):
-        return f"Movie(name = {self.name}, views = {self.views}, likes = {self.likes})"
+        return f"Movie(name = {self.name}, scores = {self.scores}, age = {self.age}), comment = {self.comment}"
     
 def create_app():
     app = Flask(__name__)

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-image: url('https://open-stand.org/wp-content/uploads/2016/04/International-Union-of-Cinemas-Calls-for-Open-Standards-in-the-Cinema-Industry.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Ensure the background covers the entire viewport */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background to make the form more readable */
+            padding: 20px;
+            margin-top: 50px; /* Adjust margin to center the form */
+        }
+        label {
+            font-weight: bold; /* Make all labels bold */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Survey Form</h2>
+        <form action="/submit" method="post">
+            <!-- Question 1 -->
+            <div class="form-group">
+                <label>What Movie do you like the most in June?</label><br>
+                <input type="radio" name="movie" value="Iron Man"> Iron Man<br>
+                <input type="radio" name="movie" value="Captain America"> Captain America<br>
+                <input type="radio" name="movie" value="Mickey Mouse"> Mickey Mouse<br>
+                <input type="radio" name="movie" value="Superman"> Superman<br>
+            </div>
+            <!-- Question 2 -->
+            <div class="form-group">
+                <label for="scoreInput">What is the score you give (scale 1-10)?</label>
+                <input type="number" class="form-control" id="scoreInput" name="score" placeholder="Enter score" min="1" max="10">
+            </div>
+            <!-- Question 3 -->
+            <div class="form-group">
+                <label for="ageInput">How old are you?</label>
+                <input type="number" class="form-control" id="ageInput" name="age" placeholder="Enter your age" min="0">
+            </div>
+            <!-- Question 4 -->
+            <div class="form-group">
+                <label for="commentInput">What is your comment on this?</label>
+                <textarea class="form-control" id="commentInput" name="comment" rows="3" placeholder="Enter your comment"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
