@@ -7,7 +7,8 @@ The user interface (UI) is adeptly engineered to engage users effectively, facil
 
 This architecture is fortified with best practices, prioritizing performance, scalability, and reliability. Below, a visual representation of the architectural framework is provided:
 
-![Image1](https://github.com/Roey0204/Movie-Survey-Form-App/blob/main/img/Image1.png "Architecture Diagram")
+<img src="https://github.com/Roey0204/Movie-Survey-Form-App/blob/main/img/Image1.png" alt="Image1" width="400" height="300">
+
 
 
 
