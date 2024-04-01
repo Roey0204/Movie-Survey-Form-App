@@ -24,7 +24,7 @@ parent_dir = os.path.dirname(current_dir)
 app = Flask(__name__)
 api = Api(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{parent_dir}/database/database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{parent_dir}/database/Movie_Database.db'
 
 db.init_app(app)
 
