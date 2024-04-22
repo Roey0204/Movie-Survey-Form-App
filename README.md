@@ -9,7 +9,7 @@ This architecture is fortified with best practices, prioritizing performance, sc
 
 <img src="https://github.com/Roey0204/Movie-Survey-Form-App/blob/main/img/Image1.png" alt="Image1" width="800" height="300">
 
-#### frontend survey form utilizes Bootstrap for its design and layout:
+### Frontend survey form utilizes Bootstrap for its design and layout:
 
 <img src="https://github.com/Roey0204/Movie-Survey-Form-App/blob/main/img/frontend.png" width="800" height="300">
 
